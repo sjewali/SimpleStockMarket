@@ -24,4 +24,10 @@
 		<constructor-arg index="0" ref="tradeStockRepository"/>
 	</bean>
 
+	<bean id="calculatorService" class="com.jpmc.ssm.service.CalculatorServiceImpl">
+		<constructor-arg index="0" ref="dividendYieldCalculator"/>
+		<constructor-arg index="1" ref="peRatioCalculator"/>
+		<constructor-arg index="2" ref="volumWeightedeStockPriceCalculator"/>
+		<constructor-arg index="3" ref="gbceCalculator"/>
+	</bean>
 </beans>

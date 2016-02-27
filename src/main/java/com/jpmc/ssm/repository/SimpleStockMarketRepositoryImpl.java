@@ -1,9 +1,9 @@
 package com.jpmc.ssm.repository;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import com.jpmc.ssm.model.Stock;
 import com.jpmc.ssm.model.Trade;
@@ -57,7 +57,7 @@ public class SimpleStockMarketRepositoryImpl implements SimpleStockMarketReposit
 
 	public void addStock(Stock stock){
 		if (stocks == null){
-			stocks = new HashMap<String, Stock>();
+			stocks = new ConcurrentHashMap<String, Stock>();
 		}
 
 		stocks.put(stock.getStockSymbol(), stock);

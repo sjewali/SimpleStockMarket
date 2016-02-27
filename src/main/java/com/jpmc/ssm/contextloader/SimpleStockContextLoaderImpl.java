@@ -34,6 +34,14 @@ public class SimpleStockContextLoaderImpl implements
 		}		
 	}
 
+	private static class SimpleStockContextHolder{
+		private static final SimpleStockContextLoader INSTANCE = new SimpleStockContextLoaderImpl();
+	}
+	
+	public static SimpleStockContextLoader getInstance(){
+		return SimpleStockContextHolder.INSTANCE;
+	}
+
 	public <T> T getBean(String beanName, Class<T> objectClass) {
 		return springContext.getBean(beanName, objectClass);
 	}
